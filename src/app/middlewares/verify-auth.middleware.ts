@@ -93,6 +93,13 @@ const verifyAuth = async (req: Request, res: Response, next: NextFunction) => {
       });
     }
 
+    if (user.role !== "admin") {
+      return response.error(res, {
+        message: "Forbidden. Admin access required.",
+        statusCode: 403,
+      });
+    }
+
     // 4. Attach user to request and pass control to next middleware/controller
     req.user = user;
     next();

@@ -10,7 +10,7 @@ authRoutes.post("/", verifyAuth)
 
 authRoutes.post("/login", validate(LoginSchema), login)
 
-authRoutes.post("/register", validate(UserSchema), register)
+// authRoutes.post("/register", validate(UserSchema), register)
 
 authRoutes.post("/forgot-password", (req: Request, res: Response) => {
   res.send("Forgot Password Route Hit")
