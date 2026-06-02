@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const ProjectValidationSchema = z.object({
-  slug: z.string().trim().min(1, "Slug is required"),
+  slug: z.string().trim().optional(),
   title: z.string().trim().min(1, "Title is required"),
   description: z.string().trim().min(1, "Description is required"),
   images: z.array(z.string().trim()).min(1, "At least one image is required"),

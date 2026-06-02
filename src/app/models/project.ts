@@ -41,4 +41,17 @@ const ProjectSchema = new Schema<IProject>(
   }
 );
 
+ProjectSchema.pre("validate", async function () {
+  if (this.title && (!this.slug || this.isModified("title"))) {
+    if (!this.isModified("slug")) {
+      this.slug = this.title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/[\s_-]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+  }
+});
+
 export const Project = model<IProject>("Project", ProjectSchema);
