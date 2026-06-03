@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "functions": {
+    "server.ts": {
+      "runtime": "vercel-bun@latest"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.ts"
+    }
+  ]
+}
