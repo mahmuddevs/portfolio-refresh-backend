@@ -6,8 +6,6 @@ import cookieParser from "cookie-parser";
 import { logger } from "./app/utils/logger.js";
 import { response } from "./app/utils/apiResponse.js";
 import router from "./app/routes/routes.js";
-import * as helmetModule from "helmet";
-
 import { env } from "./app/config/env.js";
 
 const app = express();
@@ -25,7 +23,6 @@ app.use(
   }),
 );
 // Parse JSON bodies
-app.use(helmetModule.default());
 app.use(express.json());
 // Parse cookies
 app.use(cookieParser());
