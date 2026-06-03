@@ -9,6 +9,8 @@ import router from "./app/routes/routes.js";
 import helmet from "helmet";
 import { env } from "./app/config/env.js";
 
+type HelmetType = typeof helmet;
+
 const app = express();
 
 // -----------------------------
