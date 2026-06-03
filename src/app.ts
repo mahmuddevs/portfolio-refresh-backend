@@ -2,6 +2,7 @@ import express from "express";
 import type { NextFunction, Request, Response } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import helmet from "helmet"
 import cookieParser from "cookie-parser";
 import { logger } from "./app/utils/logger.js";
 import { response } from "./app/utils/apiResponse.js";
@@ -23,6 +24,7 @@ app.use(
   }),
 );
 // Parse JSON bodies
+app.use(helmet());
 app.use(express.json());
 // Parse cookies
 app.use(cookieParser());
