@@ -15,6 +15,7 @@ const getEnv = (key: string, fallback: string): string => {
 
 export const env = {
   nodeEnv: getEnv("NODE_ENV", "development"),
+  clientUrl: getEnv("APP_URL", "http://localhost:5173"),
   appUrl: getEnv("APP_URL", "http://localhost"),
   port: Number(getEnv("PORT", "3000")),
   dbUri: `mongodb+srv://${required("DB_USERNAME")}:${required("DB_PASSWORD")}@${required("DB_CLUSTER")}/${required("DB_NAME")}?appName=MernCluster`,

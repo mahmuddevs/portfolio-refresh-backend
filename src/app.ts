@@ -7,6 +7,7 @@ import { logger } from "./app/utils/logger.js";
 import { response } from "./app/utils/apiResponse.js";
 import router from "./app/routes/routes.js";
 import helmet from "helmet";
+import { env } from "./app/config/env.js";
 
 const app = express();
 
@@ -16,7 +17,7 @@ const app = express();
 // CORS setup
 app.use(
   cors({
-    origin: ["https://resufactor-ai.netlify.app", "http://localhost:5173"],
+    origin: [env.clientUrl, "http://localhost:5173"],
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
