@@ -72,7 +72,7 @@ const verifyAuth = async (req: Request, res: Response, next: NextFunction) => {
         {
           name: "accessToken",
           value: newAccessToken,
-          expiration: env.accessTokenExpiration,
+          expiration: env.cookieExpirationTime,
         },
       ]);
 
